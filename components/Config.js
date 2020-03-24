@@ -12,28 +12,28 @@ class Config extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			about: {}
+			profil: {}
 		}
 	}
 
 	// Quand le composant est chargé, stock les données du reducer dans l'état local de la class.
 	componentDidMount() {
-		this.setState({...this.state, about: this.props.about});
+		this.setState({...this.state, profil: this.props.profil});
 	}
 
 	// Fonction utilisée quand l'input du pseudo est modifié.
 	_onChangePseudo(pseudo) {
-		this.setState({...this.state, about: {...this.state.about, pseudo: pseudo}});
+		this.setState({...this.state, profil: {...this.state.profil, pseudo: pseudo}});
 	}
 
 	// Fonction utilisée lors du clic du boutton
 	_onPress() {
 		// Utilise la liaison du mapDispatchToProps
-		this.props.editProfil(this.state.about);
+		this.props.editProfil(this.state.profil);
 	}
 
 	render() {
-		//const { about } = this.props;
+		//const { profil } = this.props;
 		return (
 			<KeyboardAwareScrollView scrollEnabled={false}>
 				<SafeAreaView style={styles.view}>
@@ -42,7 +42,7 @@ class Config extends React.Component {
 						style={styles.input}
 			        	placeholder='Pseudo'
 			        	maxLength={20}
-			        	value={this.state.about.pseudo}
+			        	value={this.state.profil.pseudo}
 			        	onChangeText={(pseudo) => this._onChangePseudo(pseudo)}
 		        	/>
 		        	<TouchableOpacity style={styles.button} onPress={() => this._onPress()}>
@@ -54,18 +54,18 @@ class Config extends React.Component {
 	}
 }
 
-// Récupère les données about du reducer
+// Récupère les données profil du reducer
 const mapStateToProps = state => {
 	return {
-		about: state.about
+		profil: state.profil
 	};
 }
 
 // Lie l'action editProfil à la class Config
 const mapDispatchToProps = dispatch => {
 	return {
-		editProfil: about => {
-			dispatch(editProfil(about))
+		editProfil: profil => {
+			dispatch(editProfil(profil))
 		}
 	};
 }

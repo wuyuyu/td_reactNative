@@ -4,35 +4,32 @@ import {
 
 const initialState = {
 
-about: [
- {
- prenom: 'Tania',
- nom: 'Rojas'
- },
- {
-  prenom: 'Laurent',
-  nom: 'Bodin'
- },
-  {
-   prenom: 'Jérémy',
-   nom: 'Gautier'
-  },
-   {
-    prenom: 'Yuyuan',
-    nom: 'Wu'
-   },
- ]
+//  Profil datas [{Object}]
 
+//  @param      {String}  {pseudo}
+    adresse: "Paname",
+    // state.profil
+ 	profil: [ {
 
-};
+ 		pseudo: 'romain',
+ 		age: '35ans'
+
+ 	}, {
+ 	pseudo: 'cristobal',
+     		age: '37ans'
+
+ 	}]
+
+ 	}
+
 
 export default function reducer(state = initialState, action) {
-    switch (action.type) {
+	switch (action.type) {
 
-        case EDIT_PROFIL:
-            return { ...state, profil: action.profil };
+		case EDIT_PROFIL:
+			return { ...state, profil: action.profil };
 
-        default:
-            return state;
-    }
+		default:
+			return state;
+	}
 }

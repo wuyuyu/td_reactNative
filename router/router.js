@@ -9,14 +9,15 @@ import About from '../components/About';
 const Tab = createBottomTabNavigator();
 
 export default class Router extends React.Component {
-         return (
-            <NavigationContainer>
-                <Tab.Navigator>
-                    <Tab.Screen name="Home" component={Home} />
-                    <Tab.Screen name="Config" component={Config} />
-                    <Tab.Screen name="About" component={About} />
-                </Tab.Navigator>
-            </NavigationContainer>
-        );
-    }
+	render() {
+		return (
+			<NavigationContainer>
+				<Tab.Navigator>
+					<Tab.Screen name="Home" component={Home} />
+					<Tab.Screen name="Config" component={Config} />
+					<Tab.Screen name="About" component={About} />
+				</Tab.Navigator>
+			</NavigationContainer>
+		);
+	}
 }
